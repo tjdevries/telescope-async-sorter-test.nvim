@@ -11,5 +11,7 @@ endfunction
 call remote#host#Register('TelescopeAsyncSorterTest', 'x', function('s:RequireTelescopeAsyncSorterTest'))
 call remote#host#RegisterPlugin('TelescopeAsyncSorterTest', '0', [
 \ {'type': 'function', 'name': 'AsyncHello', 'sync': 0, 'opts': {}},
+\ {'type': 'function', 'name': 'AsyncTelescopeSort', 'sync': 0, 'opts': {}},
 \ {'type': 'function', 'name': 'Hello', 'sync': 1, 'opts': {}},
+\ {'type': 'function', 'name': 'TestThing', 'sync': 0, 'opts': {}},
 \ ])
