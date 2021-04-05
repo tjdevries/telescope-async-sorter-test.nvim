@@ -1,14 +1,15 @@
-if exists('g:loaded_hello')
+if exists('g:loaded_TelescopeAsyncSorterTest')
     finish
 endif
-let g:loaded_hello = 1
+let g:loaded_TelescopeAsyncSorterTest = 1
 
-function! s:Requirehello(host) abort
-  let binary_file = nvim_get_runtime_file('bin/hello', v:false)[0]
+function! s:RequireTelescopeAsyncSorterTest(host) abort
+  let binary_file = nvim_get_runtime_file('bin/TelescopeAsyncSorterTest', v:false)[0]
   return jobstart([binary_file], {'rpc': v:true})
 endfunction
 
-call remote#host#Register('hello', 'x', function('s:Requirehello'))
-call remote#host#RegisterPlugin('hello', '0', [
+call remote#host#Register('TelescopeAsyncSorterTest', 'x', function('s:RequireTelescopeAsyncSorterTest'))
+call remote#host#RegisterPlugin('TelescopeAsyncSorterTest', '0', [
+\ {'type': 'function', 'name': 'AsyncHello', 'sync': 0, 'opts': {}},
 \ {'type': 'function', 'name': 'Hello', 'sync': 1, 'opts': {}},
 \ ])
